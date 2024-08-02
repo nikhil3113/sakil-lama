@@ -11,13 +11,15 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
+app.get('/', (req, res) => {
+    res.send('Welcome to the backend');
+})
 app.use('/user', userRouter)
 app.use('/project', projectRouter)
 app.use('/subproject', subProjectRouter)
 
 port = process.env.PORT
 
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })
