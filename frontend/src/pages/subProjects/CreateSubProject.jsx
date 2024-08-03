@@ -14,7 +14,7 @@ const CreateSubProject = () => {
   const handleCreateSubProject = async (formData) => {
     await axios
       .post(
-        `http://localhost:5000/subproject/${projectId}`,
+        `https://skai-lama-psi.vercel.app/subproject/${projectId}`,
         {
           name: formData.name,
           description: formData.description,
@@ -48,7 +48,7 @@ const CreateSubProject = () => {
     {
       name: "description",
       label: "Description",
-      type: "text",
+      type: "textarea",
       placeholder: "Enter Description",
     },
   ];

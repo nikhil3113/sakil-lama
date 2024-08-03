@@ -13,7 +13,7 @@ const EditSubProject = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/subproject/get/${id}`, {
+      .get(`https://skai-lama-psi.vercel.app/subproject/get/${id}`, {
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
         },
@@ -36,7 +36,7 @@ const EditSubProject = () => {
     e.preventDefault();
     await axios
       .put(
-        `http://localhost:5000/subproject/edit/${id}`,
+        `https://skai-lama-psi.vercel.app/subproject/edit/${id}`,
         {
           name,
           description,
@@ -48,7 +48,8 @@ const EditSubProject = () => {
         }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
+        navigate(-1);
       })
       .catch((error) => {
         console.log(error);
@@ -67,50 +68,37 @@ const EditSubProject = () => {
     <>
       <Navbar />
       <Breadcrumb items={breadcrumbItems} />
-      <div className="flex flex-col items-center justify-center mt-20">
+      <div className="flex flex-col items-center justify-center mt-10">
         <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
           <h2 className="text-2xl font-bold mb-4 text-center text-[#7E22CE]">
             Edit Episode
           </h2>
           <form className="w-full" onSubmit={handleEdit}>
             <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="block text-lg font-medium mb-2 text-[#7E22CE]"
-              >
-                Episode Name
-              </label>
               <input
-                type="text"
-                id="name"
-                name="name"
-                className="w-full p-2 border border-gray-300 rounded-lg"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Edit Name"
-                required
+                onChange={(e) => {
+                  e.target.value;
+                }}
+                className="text-[#7E22CE] font-semibold w-full"
               />
             </div>
             <div className="mb-4">
-              <label
-                htmlFor="description"
-                className="block text-lg font-medium mb-2 text-[#7E22CE]"
-              >
-                Description
-              </label>
               <textarea
                 name="description"
                 id="desc"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="w-full p-2 border border-gray-300 rounded-lg"
+                rows={15}
+                cols={15}
               ></textarea>
             </div>
 
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="bg-[#7E22CE] text-white font-medium px-4 py-2 rounded-lg"
+                className="bg-[#7E22CE] text-white font-medium px-4 py-2 rounded-lg w-full"
               >
                 Edit
               </button>

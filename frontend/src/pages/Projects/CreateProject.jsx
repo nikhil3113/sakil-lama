@@ -12,7 +12,7 @@ const CreateProject = () => {
   const handleCreateProject = async (formData) => {
     await axios
       .post(
-        "http://localhost:5000/project",
+        "https://skai-lama-psi.vercel.app/project",
         {
           name: formData.name,
         },
@@ -23,7 +23,7 @@ const CreateProject = () => {
         }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         navigate("/projects");
       })
       .catch((error) => {

@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ProjectForm from "../../components/Form";
+import Navbar from "../../components/Navbar";
+import Breadcrumb from "../../components/Breadcrumbs";
+import { AiOutlineHome } from "react-icons/ai";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +14,7 @@ const Signup = () => {
 
   const handleSignup = async (formData) => {
     try {
-      await axios.post("http://localhost:5000/user/signup", {
+      await axios.post("https://skai-lama-psi.vercel.app/user/signup", {
         username: formData.username,
         email: formData.email,
       });
@@ -38,7 +41,19 @@ const Signup = () => {
     },
   ];
 
-  return <ProjectForm title="Signup" fields={fields} onSubmit={handleSignup} userAuth="login"/>;
+  const breadcrumbItems = [
+   {path:"/", label:"Home", icon: AiOutlineHome},
+    {path:"/Signup", label:"Signup", color: "#7E22CE"}
+  ]
+
+  return(
+    <>
+    <Navbar />
+    <Breadcrumb items={breadcrumbItems}/>
+    <ProjectForm title="Signup" fields={fields} onSubmit={handleSignup} userAuth="login"/>
+    </>
+  ) 
+  
 };
 
 export default Signup;

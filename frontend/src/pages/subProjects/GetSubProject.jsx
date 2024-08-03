@@ -15,7 +15,7 @@ const GetSubPRoject = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/subproject/${projectId}`, {
+      .get(`https://skai-lama-psi.vercel.app/subproject/${projectId}`, {
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
         },
@@ -38,7 +38,7 @@ const GetSubPRoject = () => {
   const handleDelete = async (subProjectId) => {
     try {
       await axios.delete(
-        `http://localhost:5000/subproject/delete/${subProjectId}`,
+        `https://skai-lama-psi.vercel.app/subproject/delete/${subProjectId}`,
         {
           headers: {
             Authorization: `${localStorage.getItem("token")}`,

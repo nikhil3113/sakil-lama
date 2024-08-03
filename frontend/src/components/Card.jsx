@@ -1,5 +1,6 @@
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { IoMdCloudUpload } from "react-icons/io";
 
 const Card = ({ projects }) => {
   const getInitials = (name) => {
@@ -16,9 +17,10 @@ const Card = ({ projects }) => {
 
   return (
     <>
+     {projects.length > 0 ? (
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 ">
-        {projects.length > 0 ? (
-          projects.map((project) => (
+       
+          {projects.map((project) => (
             <div
               key={project.id}
               className="bg-white p-4 rounded-lg shadow-lg mb-4"
@@ -50,11 +52,20 @@ const Card = ({ projects }) => {
                 <FaArrowRight />
               </Link>
             </div>
-          ))
+          ))}
+          </div>
         ) : (
-          <h1 className="text-3xl text-center text-[#7E22CE]">No Projects</h1>
+          <div className="flex flex-col justify-center items-center gap-5  border-4 border-dashed  border-gray-400 h-64 mt-10 rounded-xl">
+            <IoMdCloudUpload className="text-7xl " />
+            <p className="font-semibold text-xl">Create a new Project</p>
+            <Link to={`/project/create`}>
+              <button className="bg-[#7E22CE] text-white font-medium px-4 py-2 rounded-xl w-full">
+                Create
+              </button>
+            </Link>
+          </div>    
         )}
-      </div>
+      
     </>
   );
 };

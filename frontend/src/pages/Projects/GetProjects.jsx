@@ -12,7 +12,7 @@ const GetProjects = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:5000/project", {
+      .get("https://skai-lama-psi.vercel.app/project", {
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
         },

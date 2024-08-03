@@ -29,7 +29,7 @@ const Home = () => {
           reprehenderit in
         </p>
 
-        <button className="flex items-center bg-[#211935] px-4 py-4 rounded-lg text-white my-5 " onClick={handleAuthUser}>
+        <button className="flex items-center bg-[#211935] px-4 py-4 rounded-lg text-white my-5 hover:opacity-90" onClick={handleAuthUser}>
           <svg
             width="50"
             height="45"

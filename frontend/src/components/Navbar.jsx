@@ -11,7 +11,7 @@ const Navbar = () => {
   useEffect(() => {
     if (token) {
       axios
-        .get(`http://localhost:5000/user`, {
+        .get(`https://skai-lama-psi.vercel.app/user`, {
           headers: {
             Authorization: `${localStorage.getItem("token")}`,
           },
@@ -42,7 +42,7 @@ const Navbar = () => {
         <div className="flex items-center space-x-4">
           {token && username ? (
             <div className="flex items-center space-x-4 ">
-              <Link to="/projects" className="mr-2">
+              <Link to="/projects" className="mr-4">
                 <GoProjectSymlink  className="w-8 h-8 text-purple-700 cursor-pointer"/>
               </Link>
               <Link to="/user" className="flex items-center space-x-2">

@@ -24,20 +24,33 @@ const ProjectForm = ({ title, fields, onSubmit, userAuth }) => {
               <label htmlFor={field.name} className="block text-lg font-medium mb-2 text-[#7E22CE]">
                 {field.label}
               </label>
-              <input
-                type={field.type}
-                id={field.name}
-                name={field.name}
-                className="w-full p-2 border border-gray-300 rounded-lg"
-                value={formData[field.name]}
-                onChange={handleChange}
-                placeholder={field.placeholder}
-                required
-              />
+              {field.type === "textarea" ? (
+                <textarea
+                  id={field.name}
+                  name={field.name}
+                  value={formData[field.name] || ""}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  className="w-full p-2 border border-gray-300 rounded-lg"
+                  rows={10}
+                  required
+                />
+              ) : (
+                <input
+                  type={field.type}
+                  id={field.name}
+                  name={field.name}
+                  value={formData[field.name] || ""}
+                  onChange={handleChange}
+                  placeholder={field.placeholder}
+                  className="w-full p-2 border border-gray-300 rounded-lg"
+                  required
+                />
+              )}
             </div>
           ))}
           <div className="flex justify-center">
-            <button type="submit" className="bg-[#7E22CE] text-white font-medium px-4 py-2 rounded-lg">
+            <button type="submit" className="bg-[#7E22CE] text-white font-medium px-4 py-2 rounded-lg hover:opacity-90">
               {title}
             </button>
           </div>
