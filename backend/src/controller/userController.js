@@ -85,6 +85,29 @@ const userController = {
             })
 
         }
+    },
+
+    updateUsername: async (req, res) => {
+        try {
+            const { username } = req.body;
+
+            await prisma.user.update({
+                where: {
+                    id: req.user.id,
+                },
+                data: {
+                    username: username
+                }
+            })
+
+            res.status(200).json({
+                message: "Username updated successfully"
+            })
+        } catch (error) {
+            res.status(500).json({
+                message: "Internal server error"
+            })
+        }
     }
 }
 
