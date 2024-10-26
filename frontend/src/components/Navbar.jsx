@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img src={logo} alt="logo" className="w-12 h-12" />
-          <p className="text-2xl text-purple-700 font-bold ml-3">LAMA</p>
+          <p className="text-2xl text-purple-700 font-bold ml-3">Storify</p>
         </Link>
 
         <div className="flex items-center space-x-4">
